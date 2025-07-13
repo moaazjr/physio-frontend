@@ -28,7 +28,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
 
   const fetchBookings = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/bookings');
+      const response = await axios.get(`${import.meta.env.VITE_API_URL}/bookings`);
       setBookings(response.data);
     } catch (error) {
       console.error('Error fetching bookings:', error);
@@ -49,7 +49,7 @@ export function BookingProvider({ children }: { children: ReactNode }) {
       }
 
       // Send booking to backend
-      await axios.post('http://localhost:5000/bookings', booking);
+      await axios.post(`${import.meta.env.VITE_API_URL}/bookings`, booking);
       
       // Update local state
       setBookings(prev => [...prev, booking]);

@@ -312,7 +312,7 @@ const BookingSystem: React.FC = () => {
 
     setIsSubmitting(true);
     try {
-      const response = await fetch("http://localhost:5000/bookings", {
+      const response = await fetch(`${import.meta.env.VITE_API_URL}/bookings`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -514,7 +514,7 @@ const BookingSystem: React.FC = () => {
 
   useEffect(() => {
     const getBookings = async () => {
-      const res = await axios.get("http://localhost:5000/bookings");
+      const res = await axios.get(`${import.meta.env.VITE_API_URL}/bookings`);
       setBookings(res.data);
     };
 
